@@ -11,6 +11,18 @@ router.get('/home', async (req, res) => {
 
 router.get('/sports', async (req, res) => {
     res.render('sports');
-}); 
+});
+
+router.get('/music', async (req, res) => {
+    res.render('music');
+});
+
+router.get('/cars', async (req, res) => {
+    res.render('cars');
+});
+
+router.get('/books', async (req, res) => {
+    res.render('books');
+});
 
 module.exports = router;
