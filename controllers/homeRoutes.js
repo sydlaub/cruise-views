@@ -6,4 +6,10 @@ router.get('/', async (req, res) => {
 });
 
 
+router.get('/music', async (req, res) => {
+    // send the rendered handlebars file back as the response
+    res.render('homepage');
+});
+
+
 module.exports = router;
