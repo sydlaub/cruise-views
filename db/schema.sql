@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS cruise_db;
+
+CREATE DATABASE cruise_db;
