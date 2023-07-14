@@ -5,5 +5,12 @@ router.get('/', async (req, res) => {
     res.render('homepage');
 });
 
+router.get('/home', async (req, res) => {
+    res.render('homepage');
+});
+
+router.get('/sports', async (req, res) => {
+    res.render('sports');
+}); 
 
 module.exports = router;
