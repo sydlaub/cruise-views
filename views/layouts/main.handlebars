@@ -20,14 +20,18 @@
             <div class="navbar-item">
                 <div class="buttons">
                     <div class="button is-primary">
-                        <a href ='/home'><strong>Home</strong></a>
+                        <a href='/home'><strong>Home</strong></a>
                         {{#if loggedIn}}
                     </div>
-                    <div class="button is-light">
-                        <button id="logout" class="btn-no-style">Logout</button>
-                        {{else}}
-                        <a href="/login">Login</a>
-                        {{/if}}
+                </div>
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <div class="button is-light">
+                            <button id="logout" class="btn-no-style">Logout</button>
+                            {{else}}
+                            <a href="/login">Login</a>
+                            {{/if}}
+                        </div>
                     </div>
 
                 </div>
