@@ -41,4 +41,6 @@ router.get('/userPost', async (req, res) => {
     res.render('userPost');
 });
 
+router.post
+
 module.exports = router;
