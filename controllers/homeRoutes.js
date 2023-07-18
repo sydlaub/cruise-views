@@ -37,8 +37,9 @@ router.get('/books', async (req, res) => {
 });
 
 // GET route to take user to the create new post page 
-router.get('/userPost', async (req, res) => {
+router.get('/userPost/:cat', async (req, res) => {
     res.render('userPost');
+    
 });
 
 module.exports = router;
