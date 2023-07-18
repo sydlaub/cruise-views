@@ -1,22 +1,9 @@
-// getting the values from the form
-
-const { error } = require("console");
-
-
-// when the form is submitted, we need to make sure a valid username and password is entered
-
-
-
-// if we have valid username and function, run the a loginUser function and clear the form
-
-
-// this should do a post to the api/login route and redirect to the users page 
-
+// const { error } = require("console");
 
 
 // set up event listener for sign up button
 
-const signUpFormHandler = async function () {
+const signUpFormHandler = async function (event) {
     try {
         event.preventDefault();
         console.log("test123")
@@ -25,7 +12,8 @@ const signUpFormHandler = async function () {
 
         const newEmail = document.getElementById("email-signup").value.trim();
         const newPassword = document.getElementById("password-signup").value.trim();
-
+        console.log(newEmail);
+        console.log(newPassword);
         // fetch request to send the data from the client to the server
         const response = await fetch('/api/user/signup', {
             method: "POST",
@@ -33,15 +21,13 @@ const signUpFormHandler = async function () {
                 email: newEmail,
                 password: newPassword
             }),
-            headers: {
-                "Content-Type": "application/json"
-            }
+            headers: { "Content-Type": "application/json" }
         });
-if (response.ok) {
-    console.log("Successfully signed up new user")
-} else {
-    console.log("Failed to create new user")
-}
+        if (response.ok) {
+            console.log("Successfully signed up new user")
+        } else {
+            console.log("Failed to create new user")
+        }
 
     } catch (error) {
         console.log(error);
@@ -50,5 +36,32 @@ if (response.ok) {
 
 };
 
+const loginFormHandler = async (event) => {
+    event.preventDefault();
+    const email = document.getElementById("email-login").value.trim();
+    const password = document.getElementById("password-login").value.trim();
+    console.log(email);
+    console.log(password);
+
+    if (email && password) {
+        const response = await fetch('/api/user/login', {
+            method: 'POST',
+            body: JSON.stringify({ email, password }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Failed to log in.');
+        }
+    }
+};
+
+
+// event listener to run signUpFormHandler function when button is clicked
 document.getElementById("sign-up-btn").addEventListener("click", signUpFormHandler);
 
+
+// event listener to run loginFormHandler function when login button is clicked 
+document.getElementById("login-btn").addEventListener("click", loginFormHandler);
