@@ -5,6 +5,6 @@ const category = urlArr.at(-1)
 
 // code that stores which category page the user is on and creating a post for
 localStorage.setItem("category", category)
-const postCategroy = localStorage.getItem("category")
+const postCategory = localStorage.getItem("category")
 
 
