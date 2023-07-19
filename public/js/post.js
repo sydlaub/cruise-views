@@ -1,7 +1,7 @@
 
 const submitButton = document.getElementById('post-submit');
 
-const cancelButton = document.getElementById("cancel-btn");
+const cancelButton = document.getElementById('cancel-btn');
 
 async function submitPost() {
     console.log('test123');
