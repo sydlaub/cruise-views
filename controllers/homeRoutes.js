@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+// loads homepage
 router.get('/', async (req, res) => {
     // send the rendered handlebars file back as the response
     res.render('homepage');
@@ -10,15 +11,20 @@ router.get('/home', async (req, res) => {
     res.render('homepage');
 });
 
+router.get('/login', async (req, res) => {
+    // send the rendered handlebars file back as the response
+    res.render('login');
+});
+
+
+
+// CATEGORY PAGE ROUTES
+// loads music category page
 router.get('/music', async (req, res) => {
     // send the rendered handlebars file back as the response
     res.render('music');
 });
 
-router.get('/login', async (req, res) => {
-    // send the rendered handlebars file back as the response
-    res.render('login');
-});
 
 router.get('/sports', async (req, res) => {
     res.render('sports');
@@ -41,6 +47,15 @@ router.get('/userPost', async (req, res) => {
     res.render('userPost');
 });
 
-router.post
+
+
+// login route
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
 
 module.exports = router;
