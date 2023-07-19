@@ -12,5 +12,13 @@
 }
 
 .music-header {
-    align-items: center
+    margin: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.post-field {
+    margin: 5%
 }
