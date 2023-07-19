@@ -59,6 +59,7 @@ const loginFormHandler = async (event) => {
 };
 
 
+
 // event listener to run signUpFormHandler function when button is clicked
 document.getElementById("sign-up-btn").addEventListener("click", signUpFormHandler);
 
