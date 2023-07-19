@@ -5,3 +5,12 @@
 .form-group {
     padding: 5px
 }
+
+#music-subtitle {
+    color: lightsalmon;
+    font-weight: bold
+}
+
+.music-header {
+    align-items: center
+}
