@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Entry  = require('../../models/entry');
+const Entry  = require('../../models/Entry');
 // needs to be changed
 
 router.post('/', async (req, res) => {
@@ -12,14 +12,14 @@ router.post('/', async (req, res) => {
             category: req.body.category,
         }).then(resp => {
             if (resp) {
-                return resp;
+                res.json(resp);
             } 
         });
     
         // req.session.save(() => {
         //     req.session.loggedIn = true;
 
-        //     res.status(200).json(dbEntryData);
+            res.status(200).json(dbEntryData);
         // });
     } catch (err) {
         console.log(err);
