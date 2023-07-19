@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Entry = require('../models/Entry');
 
 // loads homepage
 router.get('/', async (req, res) => {
@@ -19,27 +20,79 @@ router.get('/login', async (req, res) => {
 
 
 // CATEGORY PAGE ROUTES
-// loads music category page
-router.get('/music', async (req, res) => {
-    // send the rendered handlebars file back as the response
-    res.render('music');
-});
-
+// loads sports category page
 
 router.get('/sports', async (req, res) => {
-    res.render('sports');
+    try {
+        console.log('here');
+        const entryData = await Entry.findAll({
+            where: { category: "sports" },
+        }).catch((err) => {
+            res.json(err);
+        });
+        console.log(entryData);
+        const entries = entryData.map((entry) => entry.get({ plain: true }));
+        res.render('sports', { entries });
+    }
+    catch (ex){
+        console.log(ex);
+        console.log(ex.message);
+    }
 });
 
+
 router.get('/music', async (req, res) => {
-    res.render('music');
+    try {
+        console.log('here');
+        const entryData = await Entry.findAll({
+            where: { category: "music" },
+        }).catch((err) => {
+            res.json(err);
+        });
+        console.log(entryData);
+        const entries = entryData.map((entry) => entry.get({ plain: true }));
+        res.render('music', { entries });
+    }
+    catch (ex) {
+        console.log(ex);
+        console.log(ex.message);
+    }
 });
 
 router.get('/cars', async (req, res) => {
-    res.render('cars');
+    try {
+        console.log('here');
+        const entryData = await Entry.findAll({
+            where: { category: "cars" },
+        }).catch((err) => {
+            res.json(err);
+        });
+        console.log(entryData);
+        const entries = entryData.map((entry) => entry.get({ plain: true }));
+        res.render('cars', { entries });
+    }
+    catch (ex) {
+        console.log(ex);
+        console.log(ex.message);
+    }
 });
 
 router.get('/books', async (req, res) => {
-    res.render('books');
+    try {
+        console.log('here');
+        const entryData = await Entry.findAll({
+            where: { category: "books" },
+        }).catch((err) => {
+            res.json(err);
+        });
+        console.log(entryData);
+        const entries = entryData.map((entry) => entry.get({ plain: true }));
+        res.render('books', { entries });
+    }
+    catch (ex) {
+        console.log(ex);
+        console.log(ex.message);
+    }
 });
 
 // GET route to take user to the create new post page 
@@ -59,3 +112,15 @@ router.get('/login', (req, res) => {
 });
 
 module.exports = router;
+
+// all the posts
+router.get('/postByCategory/:category', async (req, res) => {
+    const category = req.params.category;
+    const entryData = await Entry.findAll({
+        where: { category: category }, 
+    }).catch((err) => {
+        res.json(err);
+    });
+    const entries = entryData.map((entry) => Entry.get({ plain: true }));
+    res.render('all', { entries });
+});
