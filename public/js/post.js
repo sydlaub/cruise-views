@@ -3,6 +3,7 @@ const submitButton = document.getElementById('post-submit');
 
 
 async function submitPost() {
+    console.log('test123');
     const title = document.getElementById('post-title').value;
     console.log(title);
     const postBody = document.getElementById('post-body').value;
@@ -21,5 +22,10 @@ async function submitPost() {
             'Content-Type': 'application/json',
         },
     });
+    console.log(response);
+    if (response.ok) {
+        console.log('123');
+        window.location.href = `/${category}`
+    }
 };
 submitButton.addEventListener('click', submitPost); 
