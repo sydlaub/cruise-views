@@ -15,30 +15,27 @@
     <header>
         <h1 class="title center">CRUISE VIEWS</h1>
     </header>
-    <nav>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <div class="button is-primary">
-                        <a href='/home'><strong>Home</strong></a>
-                        {{#if loggedIn}}
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-item">
-                <div class="buttons">
-                    <div class="button is-light">
-                        <button id="logout" class="btn-no-style">Logout</button>
-                        {{else}}
-                        <a href="/login">Login</a>
-                        {{/if}}
-                    </div>
-                </div>
 
+
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="buttons">
+                <a href='/home' class="button is-primary">
+                    <strong>Home</strong>
+                </a>
+                {{#if loggedIn}}
+                <a class="button is-light">
+                    Log out
+                </a>
+                {{else}}
+                <a href = '/login' class="button is-light">
+                    Log in
+                </a>
+                {{/if}}
             </div>
         </div>
-        </div>
-    </nav>
+    </div>
+    
     <main>
         <div class="gallery">
             {{{body}}}
