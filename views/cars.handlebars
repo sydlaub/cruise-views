@@ -1,4 +1,7 @@
 {{> newPostButton }}
+{{#each entries as |entry|}}
+{{> entry-detail}}
+{{/each}}
 
 <script src="/js/cars.js"></script>
 
