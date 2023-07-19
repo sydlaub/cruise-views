@@ -1,6 +1,7 @@
 
 const submitButton = document.getElementById('post-submit');
 
+const cancelButton = document.getElementById("cancel-btn");
 
 async function submitPost() {
     console.log('test123');
@@ -28,4 +29,12 @@ async function submitPost() {
         window.location.href = `/${category}`
     }
 };
+
+async function cancelPost() {
+    window.location.href = `/${category}`
+}
+
 submitButton.addEventListener('click', submitPost); 
+
+
+cancelButton.addEventListener('click', cancelPost);
