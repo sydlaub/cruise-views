@@ -30,7 +30,9 @@ async function submitPost() {
     }
 };
 
+// this function to redirect user back to the category page they were previously on when they click cancel
 async function cancelPost() {
+    const category = localStorage.getItem('category');
     window.location.href = `/${category}`
 }
 
