@@ -20,7 +20,6 @@
 
 ## Installation
 
-
 ## Usage
 
 ## Technologies Used
