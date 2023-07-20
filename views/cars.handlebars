@@ -8,14 +8,21 @@
 
 {{> newPostButton }}
 {{#each entries as |entry|}}
-{{> entry-detail}}
+{{> entry-details}}
 {{/each}}
 
 <aside>
     <h2>The love for fast cars and classic muscle cars🏎️</h2>
 </aside>
 
-<script src="/js/cars.js"></script>
+{{! Path: views/partials/entry-details.handlebars }}
+<article class="entry">
+    <h2>{{title}}</h2>
+    <p>{{body}}</p>
+    <p>{{author}}</p>
+    <p>{{date}}</p>
+</article>
+
 
 {{! Path: views/partials/newPostButton.handlebars }}
 <button id="newPostButton">New Post</button>

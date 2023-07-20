@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Entry = require('../models/Entry');
+const Entry = require('../models/entry');
 
 // loads homepage
 router.get('/', async (req, res) => {
@@ -32,6 +32,7 @@ router.get('/sports', async (req, res) => {
         });
         console.log(entryData);
         const entries = entryData.map((entry) => entry.get({ plain: true }));
+        entries.reverse()
         res.render('sports', { entries });
     }
     catch (ex){
@@ -51,6 +52,7 @@ router.get('/music', async (req, res) => {
         });
         console.log(entryData);
         const entries = entryData.map((entry) => entry.get({ plain: true }));
+        entries.reverse()
         res.render('music', { entries });
     }
     catch (ex) {
@@ -69,6 +71,7 @@ router.get('/cars', async (req, res) => {
         });
         console.log(entryData);
         const entries = entryData.map((entry) => entry.get({ plain: true }));
+        entries.reverse()
         res.render('cars', { entries });
     }
     catch (ex) {
@@ -87,6 +90,7 @@ router.get('/books', async (req, res) => {
         });
         console.log(entryData);
         const entries = entryData.map((entry) => entry.get({ plain: true }));
+        entries.reverse()
         res.render('books', { entries });
     }
     catch (ex) {
@@ -117,10 +121,11 @@ module.exports = router;
 router.get('/postByCategory/:category', async (req, res) => {
     const category = req.params.category;
     const entryData = await Entry.findAll({
-        where: { category: category }, 
+        where: { category: category },
     }).catch((err) => {
         res.json(err);
     });
-    const entries = entryData.map((entry) => Entry.get({ plain: true }));
+    const entries = entryData.map((entry) => entry.get({ plain: true }));
+    entries.reverse()
     res.render('all', { entries });
 });

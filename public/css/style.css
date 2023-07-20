@@ -1,0 +1,24 @@
+.login-card {
+    padding: 5px
+}
+
+.form-group {
+    padding: 5px
+}
+
+#music-subtitle {
+    color: lightsalmon;
+    font-weight: bold
+}
+
+.music-header {
+    margin: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.post-field {
+    margin: 5%
+}
