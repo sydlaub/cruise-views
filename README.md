@@ -33,7 +33,7 @@
 
 - Clone the repository from GitHub.
 
-- Navigate to the project directory: cd multi-category-website
+- Navigate to the project directory.
 
 - Install dependencies: npm install
 
@@ -60,6 +60,3 @@
 ![MIT License](https://img.shields.io/badge/license-MIT-black)
 
 - This project is licensed under the MIT License. You can find the full license text in the LICENSE file.
-
-
-
