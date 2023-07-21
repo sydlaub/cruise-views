@@ -4,7 +4,7 @@ const Entry = require('../models/entry');
 // loads homepage
 router.get('/', async (req, res) => {
     // send the rendered handlebars file back as the response
-    res.render('homepage');
+    res.render('homepage', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/home', async (req, res) => {
