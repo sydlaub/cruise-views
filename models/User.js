@@ -24,7 +24,7 @@ User.init(
                 isEmail: true,
             },
         },
-        passwordHash: {
+        password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
