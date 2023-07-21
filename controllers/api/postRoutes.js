@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Entry  = require('../../models');
+const {Entry}  = require('../../models');
 // needs to be changed
 
 router.post('/', async (req, res) => {
