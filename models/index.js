@@ -1,5 +1,5 @@
 const User = require("./User");
-const Entry = require("./entry");
+const Entry = require("./Entry");
 
 
 Entry.belongsTo(User, {
