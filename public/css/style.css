@@ -1,3 +1,9 @@
+body {
+    background-color: #f3ebe4;
+    font-family: 'Bungee Spice', cursive;
+    font-family: 'Russo One', sans-serif;
+}
+
 .login-card {
     padding: 5px
 }
@@ -21,4 +27,9 @@
 
 .post-field {
     margin: 5%
+}
+
+#cars-subtitle {
+    color: rgb(241, 40, 40);
+    font-weight: bold
 }
