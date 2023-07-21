@@ -25,8 +25,8 @@ const signUpFormHandler = async function (event) {
         });
         if (response.ok) {
             console.log("Successfully signed up new user")
-            alert('Your account has successfully been created. Please login below.')
-            document.location.replace('/user/login');
+            alert('Your account has successfully been created.')
+            document.location.replace('/');
         } else {
             console.log("Failed to create new user");
         }
