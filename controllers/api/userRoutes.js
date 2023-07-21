@@ -8,7 +8,7 @@ router.post('/signup', async (req, res) => {
 
         const newUser = await User.create({
             email: req.body.email,
-            password: req.body.password
+            passwordHash: req.body.password
         });
         // then we need to login using sessions (req.sessions object)
         req.session.save(() => {
