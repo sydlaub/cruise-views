@@ -28,7 +28,7 @@ router.post('/signup', async (req, res) => {
 // login route goes here
 router.post('/login', async (req, res) => {
     console.log(req.body)
-    try { 
+    try {
         const dbUserData = await User.findOne({
             where: {
                 email: req.body.email,
@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
         if (!dbUserData) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password. Please try again!'});
+                .json({ message: 'Incorrect email or password. Please try again!' });
             return;
         }
 
@@ -58,11 +58,28 @@ router.post('/login', async (req, res) => {
 
             res.status(200).json({ user: dbUserData, message: 'You are now logged in!' })
         })
- 
+
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
+
+// api/user/logout route
+router.post('/logout', async (req, res) => {
+    try {
+        if (req.session.loggedIn) {
+            req.session.destroy(() => {
+                res.status(200).json({ message: 'You have successfully logged out!'});
+            })
+
+        } else {
+            res.status(404).json({ message: 'You are not currently logged in.' });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+})
 
 module.exports = router;

@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
 router.get('/home', async (req, res) => {
     // send the rendered handlebars file back as the response
-    res.render('homepage');
+    res.render('homepage', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/login', async (req, res) => {
@@ -33,7 +33,7 @@ router.get('/sports', async (req, res) => {
         console.log(entryData);
         const entries = entryData.map((entry) => entry.get({ plain: true }));
         entries.reverse()
-        res.render('sports', { entries });
+        res.render('sports', { entries, loggedIn: req.session.loggedIn });
     }
     catch (ex){
         console.log(ex);
@@ -53,7 +53,7 @@ router.get('/music', async (req, res) => {
         console.log(entryData);
         const entries = entryData.map((entry) => entry.get({ plain: true }));
         entries.reverse()
-        res.render('music', { entries });
+        res.render('music', { entries, loggedIn: req.session.loggedIn });
     }
     catch (ex) {
         console.log(ex);
@@ -72,7 +72,7 @@ router.get('/cars', async (req, res) => {
         console.log(entryData);
         const entries = entryData.map((entry) => entry.get({ plain: true }));
         entries.reverse()
-        res.render('cars', { entries });
+        res.render('cars', { entries, loggedIn: req.session.loggedIn });
     }
     catch (ex) {
         console.log(ex);
@@ -91,7 +91,7 @@ router.get('/books', async (req, res) => {
         console.log(entryData);
         const entries = entryData.map((entry) => entry.get({ plain: true }));
         entries.reverse()
-        res.render('books', { entries });
+        res.render('books', { entries, loggedIn: req.session.loggedIn });
     }
     catch (ex) {
         console.log(ex);
@@ -101,7 +101,7 @@ router.get('/books', async (req, res) => {
 
 // GET route to take user to the create new post page 
 router.get('/userPost', async (req, res) => {
-    res.render('userPost');
+    res.render('userPost', { loggedIn: req.session.loggedIn });
 });
 
 
@@ -127,5 +127,5 @@ router.get('/postByCategory/:category', async (req, res) => {
     });
     const entries = entryData.map((entry) => entry.get({ plain: true }));
     entries.reverse()
-    res.render('all', { entries });
+    res.render('all', { entries, loggedIn: req.sessions.loggedIn });
 });

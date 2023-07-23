@@ -1,7 +1,13 @@
 <div class="card">
     <header class="card-header">
+        {{#if loggedIn}} 
         <a href="/userPost" class="card-header-title">
             Create New Thread
         </a>
+        {{else}}
+        <a href="/login" class="card-header-title">
+            Log In to Create a New Thread
+        </a>
+        {{/if}}
     </header>
 </div>
