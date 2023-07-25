@@ -42,6 +42,7 @@
 - Open your web browser and enter http://localhost:3007 to access the website.
 
 ## Usage
+https://polar-shelf-33939-bea4d22817c5.herokuapp.com/
 - The usage for this project is to provide users with a multi-category information website that offers various topics related to cars, music, books, and sports.
 
 ## Technologies Used
